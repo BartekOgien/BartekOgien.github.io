@@ -202,21 +202,3 @@ $(document).ready(function() {
   $tasksContainer.on('click','[data-task-submit-update-button]', handleTaskUpdateRequest);
   $tasksContainer.on('click','[data-task-delete-button]', handleTaskDeleteRequest);
 });
-  function toggleEditingState() {
-    var parentEl = $(this).parent().parent();
-    parentEl.toggleClass('datatable__row--editing');
-
-    var taskTitle = parentEl.find('[data-task-name-paragraph]').text();
-    var taskContent = parentEl.find('[data-task-content-paragraph]').text();
-
-    parentEl.find('[data-task-name-input]').val(taskTitle);
-    parentEl.find('[data-task-content-input]').val(taskContent);
-  }
-
-  $('[data-task-add-form]').on('submit', handleTaskSubmitRequest);
-
-  tasksContainer.on('click','[data-task-edit-button]', toggleEditingState);
-  tasksContainer.on('click','[data-task-edit-abort-button]', toggleEditingState);
-  tasksContainer.on('click','[data-task-submit-update-button]', handleTaskUpdateRequest);
-  tasksContainer.on('click','[data-task-delete-button]', handleTaskDeleteRequest);
-});
